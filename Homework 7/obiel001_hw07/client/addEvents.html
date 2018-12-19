@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="client/css/style.css">
+    <title>Add Events</title>
+</head>
+
+<body>
+    <nav class="nav">
+      <div>
+        <ul class="navbar-nav">
+            <li><a href="/"><b>Home</b></a></li>
+            <li><a href="/events"><b>Events Page</b></a></li>
+            <li><a href="/addEvents"><b>Add Events</b></a></li>
+            <li><a href="/admin"><b>Admin</b></a></li>
+            <li><a href="/logout"> <b><span class="glyphicon glyphicon-log-out"></span> </b> </a></li>
+        </ul>
+        <p id="usersName"></p>
+      </div>
+    </nav>
+    <script>
+    "use strict";
+      (function () {
+        // the API end point
+        var url = "getCurrentUserName";
+        $.ajax({
+          url: url,
+          success: function (result) {
+            $('#usersName').text(`Welcome ${result}`);
+          }
+        });
+      })();
+    </script>
+    
+    <div class="container">
+        <form name="addEvents" method="post" action="/postEvent">
+            <table class="eventsForm">
+                <tbody>
+                    <tr>
+                        <td>Event Name</td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="eventname" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="eventlocation" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="eventdate" required>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit"> Submit </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+p {
+    text-align: center;
+}
+
+table {
+    margin-top: 50px;
+}
+
+#calendarTable.thead {
+    text-align: center;
+}
+
+.eventsForm {
+    margin: auto;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+td {
+    border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.top {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    background-color: #8CBB8F;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #337CB3;
+}
+
+#sub {
+    color: #337CB3;
+}
+
+.nav {
+    color: #335151;
+    width: 100%;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+th {
+    background-color: #566A37;
+    text-align: center;
+    color: #fff;
+}
+
+th,
+tr {
+    border-right: solid 1px #fff;
+    border-left: solid 1px #fff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #335151;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}

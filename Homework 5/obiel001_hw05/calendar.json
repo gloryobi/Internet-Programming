@@ -1,0 +1,44 @@
+{
+	"calendar": [
+		{
+			"eventName": "Remember Flu Shot",
+			"location": "Coffman",
+			"date": "MON 10:00"
+		},
+		{
+			"eventName": "Complete 4131 Assignment",
+			"location": "Home",
+			"date": "THU 21:00"
+		},
+		{
+			"eventName": "Drake's BDay",
+			"location": "The Hub",
+			"date": "FRI 20:00"
+		},
+		{
+			"eventName": "Project Discussion",
+			"location": "Keller Commons",
+			"date": "TUE 11:00"
+		},
+		{
+			"eventName": "Attend Special Discussion",
+			"location": "Bruniks",
+			"date": "THU 12:30"
+		},
+		{
+			"eventName": "Dan's Class",
+			"location": "Ackerman",
+			"date": "MON 14:30"
+		},
+		{
+			"eventName": "Electronics Class",
+			"location": "California",
+			"date": "THU 11:30"
+		},
+		{
+			"eventName": "CSCI4131",
+			"location": "Anderson",
+			"date": "WED 14:30"
+		}
+	]
+}

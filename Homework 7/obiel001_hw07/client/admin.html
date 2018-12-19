@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="client/css/style.css">
+  <script type="text/javascript" src="client/admin.js"></script>
+  <title>Admin</title>
+</head>
+
+<body>
+  <nav class="nav">
+    <div>
+      <ul class="navbar-nav">
+          <li><a href="/"><b>Home</b></a></li>
+          <li><a href="/events"><b>Events Page</b></a></li>
+          <li><a href="/addEvents"><b>Add Events</b></a></li>
+          <li><a href="/admin"><b>Admin</b></a></li>
+          <li><a href="/logout"> <b><span class="glyphicon glyphicon-log-out"></span> </b> </a></li>
+      </ul>
+      <p id="usersName"></p>
+    </div>
+  </nav>
+  <script>
+    "use strict";
+    (function () {
+      // the API end point
+      var url = "getCurrentUserName";
+      $.ajax({
+        url: url,
+        success: function (result) {
+          $('#usersName').text(`Welcome ${result}!`);
+        }
+      });
+    })();
+  </script>
+
+  <div class="container">
+    <button type="button" class="btn btn-default" onclick="addUser()" style="width: auto;">
+      <span class="glyphicon glyphicon-plus"></span> Add User</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Login</th>
+          <th scope="col">New Password</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody id="usersTable">
+      </tbody>
+    </table>
+    <p id="errorMsg"></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="client/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="top">
+        <h1>Login Page</h1>
+        <p>Please enter your username and password. Both are case sensitive</p>
+    </div>
+    <p id="errorMsg"></p>
+    <form class="frm" id="loginForm" name="login" style="margin-left: 100px; margin-right: 100px;">
+        <div class="log">
+            <label> Username: </label> <br>
+            <input type="text" placeholder="Enter user name" name="username" id="username" required><br>
+            <label> Password: </label> <br>
+            <input type="password" placeholder="Enter password" name="password" id="password" required><br>
+            <button type="submit"> Submit </button>
+        </div>
+    </form>
+    <script>
+      $('#loginForm').submit(function (event) {
+        event.preventDefault();
+        $.ajax({
+          type: 'POST',
+          url: '/sendLoginDetails',
+          data: { username: $('#username').val(), password: $('#password').val() },
+          success: function (data, textStatus, jqXHR) {
+            window.location.replace(data);
+          },
+          error: function (jqXHR, textStatus, errorThrown) {
+           $("#errorMsg").html("<span style='color: red;'> Invalid credentials. Please try again! </span>");
+          }
+        });
+      });
+    </script>
+</body>
+
+</html>

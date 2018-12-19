@@ -1,0 +1,159 @@
+<!--
+Glory Obielodan
+obiel001
+4964466
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="initial-scale=1.0">
+	<meta charset = "utf-8">
+	<title>Assignment 3 - Calendar</title>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1J5tFEmeJ9CNYNv0TQi2Ftn68k6og18&libraries=places"></script>
+	<script src="script.js"></script>
+</head>
+<body onload = initMap()>
+	<nav>
+		<a href="calendar.html">My Calendar</a>  
+		<a href="form.html">Form Input</a>  
+		<a href="myWidgets.html">My Widgets</a>
+	</nav>
+	
+	<div id="google_translate_element"></div>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        
+	<table>
+		<tbody>
+			<tr>
+				<th>Monday</th>
+				<td>
+					<p>9:45AM - 11:00AM</p>
+					<p class="eventName">CSCI 5115 (KH 3-125)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Kenneth H. Keller Hall, 200 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM </p>
+					<p class="eventName">CSCI 4131 (Anderson 370)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Anderson Hall 257 19th Ave S, Minneapolis, MN 55455</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Tuesday</th>
+				<td>
+					<p>1:00PM - 2:15PM</p>
+					<p class="eventName">CSCI 4707 (KH 3-210)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Kenneth H. Keller Hall, 200 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM</p>
+					<p class="eventName">EE 4951W (Akerman 319)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 110 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Wednesday</th>
+				<td>
+					<p>9:45AM - 11:00AM</p>
+					<p class="eventName">CSCI 5115 (KH 3-125)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Kenneth H. Keller Hall, 200 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM</p>
+					<p class="eventName">CSCI 4131 (Anderson 370)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Anderson Hall 257 19th Ave S, Minneapolis, MN 55455</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Thursday</th>
+				<td>
+					<p>1:00PM - 2:15PM</p>
+					<p class="eventName">CSCI 4707 (KH 3-210)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Kenneth H. Keller Hall, 200 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>
+					<p>2:30PM - 2:45PM</p>
+					<p class="eventName">EE 4951W (Akerman 319)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 110 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+				<td>
+					<p>2:45PM - 3:45PM</p>
+					<p class="eventName">EE 4951W Weekly Group Meetings (Akerman 319)</p>
+					<p class="location" onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 110 Union St SE, Minneapolis, MN 55455</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Friday</th>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="mapTable">
+		<tbody class="mapTable">
+			<tr class="mapTable">
+				<td class="mapTableLeft" style="background-image: none;">
+					<div id="directionPanel"></div>
+					<div id="map"></div>
+				</td>
+				<td class="mapTableRight">
+					<form>
+						<table class="mapTable">
+							<tbody class="mapTable">
+								<tr class="mapTable" style="border-bottom: 1px solid grey; margin: 0px;">
+									<td class="mapTable" style="text-align: center;">
+										<img src="./search.png" alt="search" height="50" width="50">
+									</td>
+									<td class="mapTable" style="margin: 0px; padding-bottom: 5px;">
+										<p>
+											<strong>Find </strong>
+											<select id="placeCategory" name="searchPlaces" onChange="enableTextBox()">
+												<option>Restaurant</option>
+												<option>Hospital</option>
+												<option>Parking</option>
+												<option>Supermarket</option>
+												<option>Other</option>
+											</select>
+										</p>
+										<p><input id="other" name="otherPlaces" type="text" placeholder="Enter Other Places" disabled required></p>
+										<p>
+											<strong>in </strong>
+											<input id="radiusInput" name="radius" type="number" min="0" value="2000" style="width: 50px;"><strong> meters</strong>
+										</p>
+										<p><button type="button" onclick = "search()">Search</button></p>
+									</td>
+								</tr>
+								<tr class="mapTable" style="margin: 0px;">
+									<td class="mapTable" style="text-align: center;">
+										<img src="./route.png" alt="search" height="50" width="50">
+									</td>
+									<td class="mapTable" style="padding: 5px; margin: 0px;">
+										<p>
+											<strong>Direction to </strong><br>
+											<input id="destinationValue" name="destination" type="text" value="Coffman Union"><strong> by</strong>
+										</p>
+										<p><input type="radio" name="travelMode" value="WALKING" checked> WALK</p>
+										<p><input type="radio" name="travelMode" value="DRIVING"> DRIVE</p>
+										<p><input type="radio" name="travelMode" value="TRANSIT"> TRANSIT</p>
+										<p><button type="button" onclick = "directions()">Go</button></p>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

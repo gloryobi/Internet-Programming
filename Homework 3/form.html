@@ -1,0 +1,92 @@
+<!--
+Glory Obielodan
+obiel001
+4964466
+-->
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta name="viewport" content="initial-scale=1.0">
+	<meta charset = "utf-8">
+	<title>Assignment 3 - Form</title>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script src="script.js"></script>
+</head>
+<body>
+	<nav>
+		<a href="calendar.html">My Calendar</a>  
+		<a href="form.html">Form Input</a>  
+		<a href="myWidgets.html">My Widgets</a>
+	</nav>
+	
+	<div id="google_translate_element"></div>
+	<script>
+		function googleTranslateElementInit() {
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		}
+	</script>
+	<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+	<form method="get" action="https://www-users.cs.umn.edu/~shaw0162/index.php">
+		<table class="formTable">
+			<tbody>
+				<tr>
+					<td class="formCat">Event Name</td>
+					<td class="formCat">
+						<input id="eName" name="eventname" type="text" placeholder="Event Name" required>
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">Start Time</td>
+					<td class="formCat">
+						<input name="starttime" type="time" required>
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">End Time</td>
+					<td class="formCat">
+						<input name="endtime" type="time" required>
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">Location</td>
+					<td class="formCat">
+						<input id="lName" name="location" type="text" placeholder="Location" required>
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">Day of the Week</td>
+					<td class="formCat">
+						<select name="day">
+							<option>Monday</option>
+							<option>Tuesday</option>
+							<option>Wednesday</option>
+							<option>Thursday</option>
+							<option>Friday</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">Additional Info Text</td>
+					<td class="formCat">
+						<input name="additionalInfo" type="text" placeholder="Additional Info...">
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat">Additional Info URL</td>
+					<td class="formCat">
+						<input name="additionalURL" type="url" placeholder="https://example.com">
+					</td>
+				</tr>
+				<tr>
+					<td class="formCat"></td>
+					<td class="formCat">
+						<input onclick = "return validate()" type="submit" value="Submit" formtarget="_blank">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</body>
+</html>

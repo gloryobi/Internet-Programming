@@ -1,0 +1,116 @@
+<!--
+Glory Obielodan
+obiel001
+4964466
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 2 - Calendar</title>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script>
+		function popInImg(x){
+			var popImg = document.createElement('p');
+			if(x.innerHTML.indexOf("Keller") != -1){
+				popImg.innerHTML = "<img src='./keller.jpg' alt='keller.jpg' height='25' width='25'>";
+				document.getElementById("displayImg").innerHTML = "<img src='./keller.jpg' alt='keller.jpg'>";
+			}
+			else if(x.innerHTML.indexOf("Akerman Hall") != -1){
+				popImg.innerHTML = "<img src='./akerman.jpg' alt='akerman.jpg' height='25' width='25'>";
+				document.getElementById("displayImg").innerHTML = "<img src='./akerman.jpg' alt='akerman.jpg'>";
+			}
+			else if(x.innerHTML.indexOf("Anderson Hall") != -1){
+				popImg.innerHTML = "<img src='anderson.jpg' alt='anderson.jpg' height='25' width='25'>";
+				document.getElementById("displayImg").innerHTML = "<img src='anderson.jpg' alt='anderson.jpg'>";
+			}
+			x.appendChild(popImg);
+		}
+		
+		function popOutImg(x){
+			x.removeChild(x.lastChild);
+		}
+	</script>
+</head>
+<body>
+	<nav>
+		<a href="calendar.html">My Calendar</a>  
+		<a href="form.html">Form Input</a>  
+		<a href="myWidgets.html">My Widgets</a>
+	</nav>
+	
+	<table>
+		<tbody>
+			<tr>
+				<th>Monday</th>
+				<td>
+					<p>9:45AM - 11:00AM</p>
+					<p>CSCI 5115</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Keller Hall 3-125</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM</p>
+					<p>CSCI 4131</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Anderson Hall 370</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Tuesday</th>
+				<td>
+					<p>1:00PM - 2:15PM</p>
+					<p>CSCI 4707</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Keller Hall 3-210</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM</p>
+					<p>EE 4951W</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 319</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Wednesday</th>
+				<td>
+					<p>9:45AM - 11:00AM</p>
+					<p>CSCI 5115</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Keller Hall 3-125</p>
+				</td>
+				<td>
+					<p>2:30PM - 3:45PM</p>
+					<p>CSCI 4131</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Anderson Hall 370</p>
+				</td>
+				<td>-</td>
+			</tr>
+			<tr>
+				<th>Thursday</th>
+				<td>
+					<p>1:00PM - 2:15PM</p>
+					<p>CSCI 4707</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Keller Hall 3-210</p>
+				</td>
+				<td>
+					<p>2:30PM - 2:45PM</p>
+					<p>EE 4951W</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 319</p>
+				</td>
+				<td>
+					<p>2:45PM - 3:45PM</p>
+					<p>EE 4951W Weekly Group Meetings</p>
+					<p onmouseover="popInImg(this)" onmouseout ="popOutImg(this)">Akerman Hall 319</p>
+				</td>
+			</tr>
+			<tr>
+				<th>Friday</th>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<div id="displayImg"></div>
+</body>
+</html>

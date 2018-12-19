@@ -1,0 +1,235 @@
+<!--
+Glory Obielodan
+obiel001
+4964466
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset = "utf-8">
+	<title>Assignment 2 - Widgets</title>
+	<link type="text/css" rel="stylesheet" href="style.css"/>
+	<script>
+		var count = 0;
+		var prevColor = '';
+		var winConditions = [
+			['one', 'two', 'three'],
+			['four', 'five', 'six'],
+			['seven', 'eight', 'nine'],
+			['one', 'four', 'seven'],
+			['two', 'five', 'eight'],
+			['three', 'six', 'nine'],
+			['one', 'five', 'nine'],
+			['three', 'five', 'seven']
+		];
+		
+		function winCheck(){
+			for(var i = 0; i < 8; i++){
+				var tick1 = document.getElementById(winConditions[i][0]).style.backgroundColor;
+				var tick2 = document.getElementById(winConditions[i][1]).style.backgroundColor;
+				var tick3 = document.getElementById(winConditions[i][2]).style.backgroundColor;
+				if(tick1 === 'rgb(255, 82, 82)' && tick2 === 'rgb(255, 82, 82)' && tick3 === 'rgb(255, 82, 82)'){
+					alert("Red Player Wins!!");
+					clearGame();
+				}
+				else if(tick1 === 'rgb(3, 193, 255)' && tick2 === 'rgb(3, 193, 255)' && tick3 === 'rgb(3, 193, 255)'){
+					alert("Blue Player Wins!!");
+					clearGame();
+				}
+			}
+			if(count === 9){
+				alert("Tied Game!!");
+				clearGame();
+			}
+		}
+		
+		function playGame(){
+			var inpName = document.getElementById("name").value.toLowerCase();
+			var inpColor = document.getElementById("color").value;
+			var tickColor = '';
+			var regExp = /^[0-9a-zA-Z]+$/;
+			
+			if(inpName.search(regExp) !== 0){
+				alert("Cell Name must be alphabetic");
+				return false;
+			}
+			
+			if(inpColor === 'Red(o)' && prevColor !== 'Red(o)'){
+				tickColor = '#ff5252';
+			}
+			else if(inpColor === 'Blue(x)' && prevColor !== 'Blue(x)'){
+				tickColor = '#03c1ff';
+			}
+			else{
+				alert("Pick the other color. It's the next player's turn");
+				return false;
+			}
+			
+			if(inpName === 'one' || inpName === '1'){
+				if(document.getElementById("one").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("one").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'two' || inpName === '2'){
+				if(document.getElementById("two").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("two").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'three' || inpName === '3'){
+				if(document.getElementById("three").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("three").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'four' || inpName === '4'){
+				if(document.getElementById("four").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("four").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'five' || inpName === '5'){
+				if(document.getElementById("five").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("five").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'six' || inpName === '6'){
+				if(document.getElementById("six").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("six").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'seven' || inpName === '7'){
+				if(document.getElementById("seven").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("seven").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'eight' || inpName === '8'){
+				if(document.getElementById("eight").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("eight").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else if(inpName === 'nine' || inpName === '9'){
+				if(document.getElementById("nine").style.backgroundColor === "rgb(117, 117, 117)"){
+					document.getElementById("nine").style.backgroundColor = tickColor;
+				}
+				else{
+					alert("The chosen cell is already ticked. Choose another one");
+					return false;
+				}
+			}
+			else{
+				alert("Only enter one of the Cell Names");
+				return false;
+			}
+			prevColor = inpColor;
+			count++;
+			//winCheck();
+			setTimeout(winCheck, 5);
+			return true;
+		}
+		
+		function clearGame(){
+			count = 0;
+			prevColor = '';
+			document.getElementById("name").value = "";
+			document.getElementById("one").style.backgroundColor = "#757575";
+			document.getElementById("two").style.backgroundColor = "#757575";
+			document.getElementById("three").style.backgroundColor = "#757575";
+			document.getElementById("four").style.backgroundColor = "#757575";
+			document.getElementById("five").style.backgroundColor = "#757575";
+			document.getElementById("six").style.backgroundColor = "#757575";
+			document.getElementById("seven").style.backgroundColor = "#757575";
+			document.getElementById("eight").style.backgroundColor = "#757575";
+			document.getElementById("nine").style.backgroundColor = "#757575";
+		}
+	</script>
+</head>
+<body>
+	<nav>
+		<a href="calendar.html">My Calendar</a>  
+		<a href="form.html">Form Input</a>  
+		<a href="myWidgets.html">My Widgets</a>
+	</nav>
+	
+	<div style="margin-top: 1%; margin-left: auto; margin-right: auto; width: 80%;">
+		<table class = "widgetTable">
+			<tbody class = "widgetTable">
+				<tr class = "widgetTable">
+					<td class = "widgetTable">
+						<iframe width="715" height="500" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCqOb8TBPRdmBHs5Iftvv9TPboYG" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+					</td>
+					<td class = "widgetTable" style="padding-left: 10px;">
+						<a class="twitter-timeline" href="https://twitter.com/mashable" data-width="350" data-height="500" data-theme="dark">
+							Tweets by @mashable
+						</a>
+						<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					</td>
+				</tr>
+			<tbody>
+		</table>
+	</div>
+	<div style="margin-top: 1%; margin-left: auto; margin-right: auto; width: 200px; border: 2px solid black; background-color: #e0e0e0; text-align: center;">
+		<p><strong>TIC-TAC-TOE GAME</strong></p>
+		<form style="width: auto; margin: auto; margin-top: 20px; margin-bottom: 20px;">
+			<p>Enter Cell Name: </p>
+			<input id="name" name="cellName" type="text" placeholder="One" required>
+			<p>Select Cell Color: </p>
+			<select id="color" name="cellColor">
+				<option>Red(o)</option>
+				<option>Blue(x)</option>
+			</select>
+			<button type="button" onclick = "playGame()">Enter</button>
+			<button type="button" onclick = "clearGame()">Reset</button>
+		</form>
+		<table class="gameTable">
+			<tbody class="gameTable">
+				<tr class="gameTable">
+					<td class="gameTable" id="one" style="background-color: #757575;">One</td>
+					<td class="gameTable" id="two" style="background-color: #757575;">Two</td>
+					<td class="gameTable" id="three" style="background-color: #757575;">Three</td>
+				</tr>
+				<tr class="gameTable">
+					<td class="gameTable" id="four" style="background-color: #757575;">Four</td>
+					<td class="gameTable" id="five" style="background-color: #757575;">Five</td>
+					<td class="gameTable" id="six" style="background-color: #757575;">Six</td>
+				</tr>
+				<tr class="gameTable">
+					<td class="gameTable" id="seven" style="background-color: #757575;">Seven</td>
+					<td class="gameTable" id="eight" style="background-color: #757575;">Eight</td>
+					<td class="gameTable" id="nine" style="background-color: #757575;">Nine</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
